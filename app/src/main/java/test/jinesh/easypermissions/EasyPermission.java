@@ -1,14 +1,10 @@
 package test.jinesh.easypermissions;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -79,8 +75,13 @@ public class EasyPermission {
 
     /**
      * Method to call OnPermissionResult interface
+     *
+     * @param activity   activity reference
+     * @param permission current asked permission
+     * @param isGranted  true if permission granted false otherwise
+     * @throws InterfaceNotImplementedException throws when OnPermissionResult is not implemented
      */
-    private void callInterface(Activity activity, String permission, boolean b) throws InterfaceNotImplementedException {
+    private void callInterface(Activity activity, String permission, boolean isGranted) throws InterfaceNotImplementedException {
         Method method = null;
         try {
             method = activity.getClass().getMethod("onPermissionResult", String.class, boolean.class);
@@ -89,7 +90,7 @@ public class EasyPermission {
         }
         if (method != null) {
             try {
-                method.invoke(activity, permission, b);
+                method.invoke(activity, permission, isGranted);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e) {
@@ -98,10 +99,22 @@ public class EasyPermission {
         }
     }
 
+    /**
+     * Interface to notify permission result
+     */
     public interface OnPermissionResult {
-        void onPermissionResult(String permission, boolean isGranded);
+        /**
+         * Method will get called after permission request
+         *
+         * @param permission asked permission
+         * @param isGranted  true if permission granted false otherwise
+         */
+        void onPermissionResult(String permission, boolean isGranted);
     }
 
+    /**
+     * Exception throws when OnPermissionResult interface not implemented
+     */
     public class InterfaceNotImplementedException extends RuntimeException {
         public InterfaceNotImplementedException(String message) {
             super(message);

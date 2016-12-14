@@ -24,11 +24,11 @@ public class MainActivity extends AppCompatActivity implements EasyPermission.On
     }
 
     @Override
-    public void onPermissionResult(String permission, boolean isGranded) {
+    public void onPermissionResult(String permission, boolean isGranted) {
         switch (permission) {
             case Manifest.permission.READ_CONTACTS:
-                if (isGranded) {
-                    Log.e("readContacts", "granded");
+                if (isGranted) {
+                    Log.e("readContacts", "granted");
                     easyPermission.requestPermission(MainActivity.this,Manifest.permission.ACCESS_COARSE_LOCATION);
                 } else {
                     Log.e("readContacts", "denied");
@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements EasyPermission.On
                 }
                 break;
             case Manifest.permission.ACCESS_COARSE_LOCATION:
-                if (isGranded) {
-                    Log.e("location", "granded");
+                if (isGranted) {
+                    Log.e("location", "granted");
                 } else {
                     Log.e("location", "denied");
                 }
