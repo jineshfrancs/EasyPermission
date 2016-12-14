@@ -1,4 +1,4 @@
-package test.jinesh.easypermissions;
+package test.jinesh.easypermissions.utils;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;
@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -68,7 +67,6 @@ public class EasyPermission {
                     }
 
                 }
-                return;
             }
         }
     }
@@ -82,7 +80,7 @@ public class EasyPermission {
      * @throws InterfaceNotImplementedException throws when OnPermissionResult is not implemented
      */
     private void callInterface(Activity activity, String permission, boolean isGranted) throws InterfaceNotImplementedException {
-        Method method = null;
+        Method method;
         try {
             method = activity.getClass().getMethod("onPermissionResult", String.class, boolean.class);
         } catch (NoSuchMethodException e) {
@@ -91,9 +89,7 @@ public class EasyPermission {
         if (method != null) {
             try {
                 method.invoke(activity, permission, isGranted);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -115,8 +111,8 @@ public class EasyPermission {
     /**
      * Exception throws when OnPermissionResult interface not implemented
      */
-    public class InterfaceNotImplementedException extends RuntimeException {
-        public InterfaceNotImplementedException(String message) {
+    private class InterfaceNotImplementedException extends RuntimeException {
+        private InterfaceNotImplementedException(String message) {
             super(message);
         }
     }
