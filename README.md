@@ -11,20 +11,22 @@ Receive the result of all permissions at one place.
 
 ```
     @Override
-    public void onPermissionResult(String permission, boolean isGranded) {
+    public void onPermissionResult(String permission, boolean isGranted) {
         switch (permission) {
             case Manifest.permission.READ_CONTACTS:
-                if (isGranded) {
-                    //granded read contacts permission
+                if (isGranted) {
+                    //granted read contacts permission
+                    //asking for one more permission after contacts permission is granted
                     easyPermission.requestPermission(MainActivity.this,Manifest.permission.ACCESS_COARSE_LOCATION);
                 } else {
                     //denied read contacts permission
+                    //asking for one more permission even after contacts permission is denied
                     easyPermission.requestPermission(MainActivity.this,Manifest.permission.ACCESS_COARSE_LOCATION);
                 }
                 break;
             case Manifest.permission.ACCESS_COARSE_LOCATION:
-                if (isGranded) {
-                    //granded access location permission
+                if (isGranted) {
+                    //granted access location permission
                 } else {
                     //denied access location permission
                 }
