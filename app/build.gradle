@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "test.jinesh.easypermissions"
-        minSdkVersion 16
+        minSdkVersion 9
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
