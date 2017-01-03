@@ -34,3 +34,22 @@ Receive the result of all permissions at one place.
         }
     }
 ```
+
+Use in your project
+------
+
+1. Add the repository to your build file:
+```
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
+}
+```
+
+2. Add the dependency in your build file:
+```
+dependencies {
+    compile 'com.github.jineshfrancs:EasyPermission:v1.0'
+}
+```
