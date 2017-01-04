@@ -38,18 +38,19 @@ Receive the result of all permissions at one place.
 Use in your project
 ------
 
-1. Add the repository to your build file:
+1. Add it in your root build.gradle at the end of repositories:
 ```
-repositories {
-    maven {
-        url "https://jitpack.io"
-    }
-}
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
 ```
 
 2. Add the dependency in your build file:
 ```
 dependencies {
-    compile 'com.github.jineshfrancs:EasyPermission:v1.0'
+	        compile 'com.github.jineshfrancs:EasyPermission:2.0.1'
 }
 ```
