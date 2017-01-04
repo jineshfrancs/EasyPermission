@@ -5,8 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 
 import test.jinesh.easypermissions.utils.EasyPermission;
 
@@ -19,7 +17,6 @@ public class MainActivity extends AppCompatActivity implements EasyPermission.On
         setContentView(R.layout.activity_main);
         easyPermission = new EasyPermission();
         easyPermission.requestPermission(this, Manifest.permission.READ_CONTACTS);
-
     }
 
     @Override
