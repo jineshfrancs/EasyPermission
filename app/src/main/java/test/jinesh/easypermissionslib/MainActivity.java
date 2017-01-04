@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import test.jinesh.easypermissions.EasyPermission;
+import test.jinesh.easypermissions.*;
+import test.jinesh.easypermissions.R;
+
 
 public class MainActivity extends AppCompatActivity implements EasyPermission.OnPermissionResult {
     EasyPermission easyPermission;
