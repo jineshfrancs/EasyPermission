@@ -1,4 +1,4 @@
-package test.jinesh.easypermissions;
+package test.jinesh.easypermissionslib;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;

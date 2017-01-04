@@ -1,10 +1,12 @@
-package test.jinesh.easypermissions;
+package test.jinesh.easypermissionslib;
 
 import android.Manifest;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
+import test.jinesh.easypermissions.EasyPermission;
 
 public class MainActivity extends AppCompatActivity implements EasyPermission.OnPermissionResult {
     EasyPermission easyPermission;

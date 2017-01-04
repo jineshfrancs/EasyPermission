@@ -1,4 +1,4 @@
-package test.jinesh.easypermissions;
+package test.jinesh.easypermissionslib;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("test.jinesh.easypermissions", appContext.getPackageName());
+        assertEquals("test.jinesh.easypermissions.test", appContext.getPackageName());
     }
 }
