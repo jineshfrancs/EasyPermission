@@ -51,6 +51,6 @@ Use in your project
 2. Add the dependency in your build file:
 ```
 dependencies {
-	        compile 'com.github.jineshfrancs:EasyPermission:2.0.1'
+	        compile 'com.github.jineshfrancs:EasyPermission:2.0.2'
 }
 ```
